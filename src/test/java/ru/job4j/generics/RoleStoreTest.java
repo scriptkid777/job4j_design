@@ -1,6 +1,6 @@
 package ru.job4j.generics;
 
-import org.junit.Assert;
+
 import org.junit.Test;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertNull;
@@ -16,7 +16,7 @@ public class RoleStoreTest {
         roleStore.add(one);
         roleStore.add(two);
         roleStore.replace("Admin", three);
-        assertThat(roleStore.findById("User") , is(two));
+        assertThat(roleStore.findById("User"), is(two));
         assertThat(roleStore.findById("Admin"), is(three));
     }
 
