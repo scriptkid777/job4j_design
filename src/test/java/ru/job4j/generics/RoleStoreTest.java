@@ -17,7 +17,7 @@ public class RoleStoreTest {
         roleStore.add(two);
         roleStore.replace("Admin", three);
         assertThat(roleStore.findById("User"), is(two));
-        assertThat(roleStore.findById("Admin"), is(three));
+        assertThat(roleStore.findById("Admin") , is(three));
     }
 
     @Test
