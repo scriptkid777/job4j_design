@@ -78,7 +78,7 @@ public class SimpleArrayList<T> implements List<T> {
     }
     private T[] chSize() {
         if (container.length == 0) {
-         container[0] = null;
+         container = Arrays.copyOf(container, 10);
         }
         if (size == container.length) {
             container = Arrays.copyOf(container, container.length * 2);
