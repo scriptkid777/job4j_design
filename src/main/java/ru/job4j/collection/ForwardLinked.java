@@ -1,7 +1,5 @@
 package ru.job4j.collection;
 
-
-
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
@@ -34,7 +32,7 @@ public class ForwardLinked<T>  implements Iterable<T> {
             @Override
             public T next() {
                 if (!hasNext()) {
-                    throw new NoSuchElementException();
+                    throw new NoSuchElementException("Нет элементов");
                 }
                 T value = node.value;
                 node = node.next;
