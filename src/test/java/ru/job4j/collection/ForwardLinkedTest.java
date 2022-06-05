@@ -10,7 +10,7 @@ import static org.junit.Assert.*;
 
 public class ForwardLinkedTest {
     @Test(expected = NoSuchElementException.class)
-    public void whenDeleteFirst(){
+    public void whenDeleteFirst() {
         ForwardLinked<Integer> linked = new ForwardLinked<>();
         linked.add(1);
         linked.deleteFirst();
