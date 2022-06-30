@@ -68,4 +68,8 @@ public class ForwardLinked<T>  implements Iterable<T> {
         tmp.value = null;
         return value;
     }
+
+    public boolean isEmpty() {
+        return head == null;
+    }
 }
