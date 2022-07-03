@@ -25,7 +25,6 @@ public class ForwardLinked<T>  implements Iterable<T> {
     }
 
     public boolean revert() {
-        //TODO impl reverts of linked list.
         if (head == null || head.next == null) {
             return false;
         }
