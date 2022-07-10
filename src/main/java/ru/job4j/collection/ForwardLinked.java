@@ -26,19 +26,19 @@ public class ForwardLinked<T>  implements Iterable<T> {
 
     public boolean revert() {
         boolean rsl;
-        if ((head != null ? head.next : null) != null) {
-            Node<T> next = head.next;
-            head.next = null;
-            while (next != null) {
-                Node<T> node = next.next;
-                next.next = head;
-                head = next;
-                next = node;
+        if (head != null && head.next != null) {
+                rsl = true;
+                Node<T> next = head.next;
+                head.next = null;
+                while (next != null) {
+                    Node<T> node = next.next;
+                    next.next = head;
+                    head = next;
+                    next = node;
+                }
+            } else {
+                rsl = false;
             }
-            rsl = true;
-        } else {
-             rsl = false;
-        }
         return rsl;
     }
 
