@@ -37,18 +37,18 @@ public class SimpleMap<K, V> implements Map<K, V> {
     }
 
     private int hash(int hashCode) {
-        return  hashCode % capacity;
+       return hashCode ^ (hashCode >>> 16);
     }
 
     private int indexFor(int hash) {
-        return hash % capacity;
+        return hash & (capacity - 1);
     }
 
     private void expand() {
-    float size = (float) count / (float) table.length;
+    float size = (float) count / table.length;
     int index = 0;
     if (size >= LOAD_FACTOR) {
-        capacity = capacity * 2;
+        capacity *= 2;
         MapEntry<K, V>[] table2 = new MapEntry[capacity];
         MapEntry<K, V> tmp;
         for (int i = 0; i < table.length; i++) {
@@ -72,12 +72,21 @@ public class SimpleMap<K, V> implements Map<K, V> {
         int index = 0;
         if (key != null) {
             index = indexFor(hash(key.hashCode()));
-       }
-        if (table[index] != null && Objects.equals(table[index].key, key)) {
+        } else {
             return table[index].value;
         }
-       return null;
-    }
+        if (count > index) {
+            if (table[index].key != null) {
+                if (key.hashCode() == table[index].key.hashCode()) {
+                    if (Objects.equals(table[index].key, key)) {
+                        return table[index].value;
+                    }
+                }
+            }
+        }
+        return null;
+        }
+
 
     @Override
     public boolean remove(K key) {
@@ -85,13 +94,22 @@ public class SimpleMap<K, V> implements Map<K, V> {
         int index = 0;
         if (key != null) {
             index = indexFor(hash(key.hashCode()));
-        }
-        if (table[index] != null && Objects.equals(table[index].key, key)) {
+        } else {
             table[index] = null;
             modCount++;
             count--;
-          rsl = true;
+            rsl = true;
         }
+        if (key != null && table[index] != null) {
+            if (key.hashCode() == table[index].key.hashCode()) {
+                if (Objects.equals(table[index].key, key)) {
+                table[index] = null;
+                modCount++;
+                count--;
+                rsl = true;
+            }
+        }
+    }
         return rsl;
     }
 
@@ -119,8 +137,6 @@ public class SimpleMap<K, V> implements Map<K, V> {
                 if (!hasNext()) {
                    throw new NoSuchElementException();
                 }
-                System.out.println("key - " + table[cursor].key + " value - " + table[cursor].value);
-
                 return table[cursor++].key;
             }
         };
@@ -129,7 +145,6 @@ public class SimpleMap<K, V> implements Map<K, V> {
 
 
     private static class MapEntry<K, V> {
-
         K key;
         V value;
 
