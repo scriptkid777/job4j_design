@@ -19,12 +19,10 @@ public class SimpleMap<K, V> implements Map<K, V> {
 
     @Override
     public boolean put(K key, V value) {
-        boolean rsl = false;
+        boolean rsl;
         expand();
-        int index = 0;
-        if (key != null) {
-            index = indexFor(hash(key.hashCode()));
-        }
+        int index;
+            index = indexFor(hash(Objects.hashCode(key)));
             if (table[index] == null) {
                 table[index] = new MapEntry(key, value);
                 rsl = true;
@@ -46,7 +44,7 @@ public class SimpleMap<K, V> implements Map<K, V> {
 
     private void expand() {
     float size = (float) count / table.length;
-    int index = 0;
+    int index;
     if (size >= LOAD_FACTOR) {
         capacity *= 2;
         MapEntry<K, V>[] table2 = new MapEntry[capacity];
@@ -69,47 +67,30 @@ public class SimpleMap<K, V> implements Map<K, V> {
 
     @Override
     public V get(K key) {
-        int index = 0;
-        if (key != null) {
-            index = indexFor(hash(key.hashCode()));
-        } else {
-            return table[index].value;
-        }
-        if (count > index) {
-            if (table[index].key != null) {
-                if (key.hashCode() == table[index].key.hashCode()) {
-                    if (Objects.equals(table[index].key, key)) {
-                        return table[index].value;
+        int index;
+        V rsl = null;
+        int  keyHash = this.hash(Objects.hashCode(key));
+        index = indexFor(keyHash);
+            if (table[index] != null && keyHash == this.hash(Objects.hashCode(table[index].key)) && Objects.equals(table[index].key, key)) {
+                        rsl = table[index].value;
                     }
-                }
-            }
-        }
-        return null;
+        return rsl;
         }
 
 
     @Override
     public boolean remove(K key) {
         boolean rsl = false;
-        int index = 0;
-        if (key != null) {
-            index = indexFor(hash(key.hashCode()));
-        } else {
+        int index;
+        int keyHash = this.hash(Objects.hashCode(key));
+            index = indexFor(keyHash);
+
+        if (table[index] != null && keyHash == this.hash(Objects.hashCode(table[index].key)) && Objects.equals(table[index].key, key)) {
             table[index] = null;
-            modCount++;
-            count--;
-            rsl = true;
-        }
-        if (key != null && table[index] != null) {
-            if (key.hashCode() == table[index].key.hashCode()) {
-                if (Objects.equals(table[index].key, key)) {
-                table[index] = null;
                 modCount++;
                 count--;
                 rsl = true;
             }
-        }
-    }
         return rsl;
     }
 
@@ -152,6 +133,5 @@ public class SimpleMap<K, V> implements Map<K, V> {
             this.key = key;
             this.value = value;
         }
-
     }
 }
