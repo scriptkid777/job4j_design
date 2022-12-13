@@ -19,13 +19,15 @@ public class Config {
     public void load() {
         try (BufferedReader in = new BufferedReader(new FileReader(this.path))) {
             for (String line = in.readLine(); line != null; line = in.readLine()) {
-                while (!line.contains("=")) {
-                    line = in.readLine();
-                }
                 String[] split = line.split("=");
-                if (split.length != 2) {
+                if (line.isBlank() || line.startsWith("#")) {
+                    continue;
+                }
+
+                if (split.length != 2 || !line.contains("=")) {
                     throw new IllegalAccessException("Check the file, it contains an error");
                 }
+
                 values.put(split[0], split[1]);
             }
             } catch (Exception e) {

@@ -28,5 +28,12 @@ class ConfigTest {
         Config config = new Config(path);
         config.load();
     }
+
+    @Test
+    public void whenBrokenEqualThenException() {
+        String path = "./data/without_equal.properties";
+        Config config = new Config(path);
+        config.load();
+    }
 }
 
