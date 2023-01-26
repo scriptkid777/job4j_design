@@ -8,23 +8,20 @@ public class Analysis {
         try (PrintWriter out = new PrintWriter(new BufferedOutputStream(new FileOutputStream(target)))) {
             BufferedReader reader = new BufferedReader(new FileReader(source));
 for (String line = reader.readLine(); line != null; line = reader.readLine()) {
+    String[] array = line.split(" ");
     if (flag && (line.contains("400") || line.contains("500"))) {
        flag = false;
-       String[] array = line.split(" ", 2);
-       out.print(array[1]);
-       out.print(";");
+       out.append(array[1]).append(";");
     } else if (!flag && (line.contains("200") || line.contains("300"))) {
         flag = true;
-        String[] array = line.split(" ", 2);
-        out.print(array[1]);
-        out.print(";");
-        out.print(System.lineSeparator());
+        out.append(array[1]).append(";").append(System.lineSeparator());
     }
 }
         }   catch (IOException e) {
             e.printStackTrace();
         }
     }
+
 
 
     public static void main(String[] args) {
