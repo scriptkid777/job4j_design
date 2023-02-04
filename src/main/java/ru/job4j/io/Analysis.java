@@ -3,7 +3,7 @@ package ru.job4j.io;
 import java.io.*;
 
 public class Analysis {
-    public void unavailable(String source, String target) {
+    public static void unavailable(String source, String target) {
         var flag = true;
         try (PrintWriter out = new PrintWriter(new BufferedOutputStream(new FileOutputStream(target)))) {
             BufferedReader reader = new BufferedReader(new FileReader(source));
@@ -25,6 +25,6 @@ for (String line = reader.readLine(); line != null; line = reader.readLine()) {
 
 
     public static void main(String[] args) {
-       new Analysis().unavailable("server.log", "unavailable.csv");
+        new Analysis().unavailable("server.log", "unavailable.csv");
     }
 }
