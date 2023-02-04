@@ -10,10 +10,10 @@ public class Analysis {
 for (String line = reader.readLine(); line != null; line = reader.readLine()) {
     String[] array = line.split(" ");
     if (flag && (line.contains("400") || line.contains("500"))) {
-       flag = false;
+        flag = false;
        out.append(array[1]).append(";");
     } else if (!flag && (line.contains("200") || line.contains("300"))) {
-        flag = true;
+         flag = true;
         out.append(array[1]).append(";").append(System.lineSeparator());
     }
 }

@@ -38,6 +38,7 @@ public class User {
 
 
 
+    /** @noinspection checkstyle:EqualsHashCode, checkstyle:NeedBraces, checkstyle:NeedBraces */
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof User)) return false;

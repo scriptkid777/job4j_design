@@ -33,6 +33,8 @@ public class ComputeIfAbsent {
             return name;
         }
 
+
+        /** @noinspection checkstyle:NeedBraces*/
         @Override
         public boolean equals(Object o) {
             if (this == o) return true;

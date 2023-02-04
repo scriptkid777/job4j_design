@@ -14,12 +14,12 @@ public class AnalysisTest {
         File source = tmp.resolve("server1.log").toFile();
         File target = tmp.resolve("unavailable1.csv").toFile();
         try (PrintWriter writer = new PrintWriter(source)) {
-            writer.println("200 10:56:01\n" +
-                    "500 10:57:01\n" +
-                    "400 10:58:01\n" +
-                    "500 10:59:01\n" +
-                    "400 11:01:02\n" +
-                    "200 11:02:02");
+            writer.println("200 10:56:01\n"
+                    + "500 10:57:01\n"
+                    + "400 10:58:01\n"
+                    + "500 10:59:01\n"
+                    + "400 11:01:02\n"
+                    + "200 11:02:02");
         }
         Analysis.unavailable(source.getAbsolutePath(), target.getAbsolutePath());
         StringBuilder rsl = new StringBuilder();
