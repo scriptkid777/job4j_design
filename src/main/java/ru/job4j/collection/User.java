@@ -2,6 +2,7 @@ package ru.job4j.collection;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Calendar;
+import java.util.Objects;
 
 public class User {
     private String name;
@@ -32,6 +33,21 @@ public class User {
                 hashCode1, hash1, bucket1);
         System.out.printf("user2 - хэш-код: %s , хэш: %s, бакет: %s",
                 hashCode2, hash2, bucket2);
-        System.out.println(user1.equals(user2));
+
     }
+
+
+
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof User)) return false;
+        User user = (User) o;
+        return children == user.children && name.equals(user.name) && birthday.equals(user.birthday);
+    }
+
+  /*  @Override
+    public int hashCode() {
+        return Objects.hash(name, children, birthday);
+    } */
+
 }
