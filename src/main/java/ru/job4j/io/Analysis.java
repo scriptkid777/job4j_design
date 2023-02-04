@@ -9,7 +9,7 @@ public class Analysis {
             BufferedReader reader = new BufferedReader(new FileReader(source));
 for (String line = reader.readLine(); line != null; line = reader.readLine()) {
     String[] array = line.split(" ");
-    if (flag && (line.contains("400") || line.contains("500"))) {
+    if (flag && (line.contains("400") || line.contains("500 "))) {
         flag = false;
        out.append(array[1]).append(";");
     } else if (!flag && (line.contains("200") || line.contains("300"))) {

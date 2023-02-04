@@ -19,13 +19,13 @@ public class AnalysisTest {
                     + "400 10:58:01\n"
                     + "500 10:59:01\n"
                     + "400 11:01:02\n"
-                    + "200 11:02:02");
+                    + "200 11:02:01");
         }
         Analysis.unavailable(source.getAbsolutePath(), target.getAbsolutePath());
         StringBuilder rsl = new StringBuilder();
         try (BufferedReader reader = new BufferedReader(new FileReader(target))) {
             reader.lines().forEach(rsl::append);
         }
-         assertThat("10:57:01;11:02:02").isEqualTo(rsl.toString());
+         assertThat("10:57:01;11:02:01").isEqualTo(rsl.toString());
     }
 }
