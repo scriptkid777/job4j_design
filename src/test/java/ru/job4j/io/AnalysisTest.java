@@ -10,7 +10,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 public class AnalysisTest {
 
     @Test
-public void whenServerDown(@TempDir Path tmp) throws IOException {
+ public void whenServerDown(@TempDir Path tmp) throws IOException {
         File source = tmp.resolve("server1.log").toFile();
         File target = tmp.resolve("unavailable1.csv").toFile();
         try (PrintWriter writer = new PrintWriter(source)) {
