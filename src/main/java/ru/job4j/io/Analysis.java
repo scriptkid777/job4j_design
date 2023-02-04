@@ -25,6 +25,6 @@ for (String line = reader.readLine(); line != null; line = reader.readLine()) {
 
 
     public static void main(String[] args) {
-        new Analysis().unavailable("server.log", "unavailable.csv");
+         new Analysis().unavailable("server.log", "unavailable.csv");
     }
 }
