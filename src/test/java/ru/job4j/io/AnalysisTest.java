@@ -1,6 +1,7 @@
 package ru.job4j.io;
 
-import org.junit.Test;
+
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
 import java.io.*;
 import java.nio.file.Path;
@@ -9,7 +10,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class AnalysisTest {
 
-    @Test
+@Test
  public void whenServerDown(@TempDir Path tmp) throws IOException {
         File source = tmp.resolve("server1.log").toFile();
         File target = tmp.resolve("unavailable1.csv").toFile();
@@ -26,6 +27,7 @@ public class AnalysisTest {
         try (BufferedReader reader = new BufferedReader(new FileReader(target))) {
             reader.lines().forEach(rsl::append);
         }
-         assertThat("10:57:01;11:02:01").isEqualTo(rsl.toString());
+
+         assertThat("10:57:01;11:02:01;").isEqualTo(rsl.toString());
     }
 }
