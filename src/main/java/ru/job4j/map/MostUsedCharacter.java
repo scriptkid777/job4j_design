@@ -15,11 +15,15 @@ public class MostUsedCharacter {
                 map.putIfAbsent(sym, 1);
             } else {
                 map.computeIfPresent(sym, (k, v) -> v + 1);
+                rsl = map.firstKey();
             }
-
-
         }
-
+        for (Map.Entry<Character, Integer> entry : map.entrySet()) {
+            if (max < entry.getValue()) {
+                max = entry.getValue();
+                rsl = entry.getKey();
+            }
+        }
 
         return rsl;
     }
