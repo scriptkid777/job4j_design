@@ -8,7 +8,7 @@ import java.util.Objects;
  * Данный класс описывает файл,
  * который имеет какое-то имя и размер.
  *
- * @author Constantine on 25.01.2022
+ * @author scriptkid777
  */
 
 public class FileProperty {
@@ -45,17 +45,19 @@ public class FileProperty {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+
+            return false;
+        }
         FileProperty that = (FileProperty) o;
         return size == that.size && Objects.equals(name, that.name);
     }
 
     @Override
     public String toString() {
-        return "FileProperty{" +
-                "size=" + size +
-                ", name='" + name + '\'' +
-                '}';
+        return "FileProperty{" + "size=" + size + ", name='" + name + '\'' + '}';
     }
 }
