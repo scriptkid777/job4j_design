@@ -8,7 +8,7 @@ import java.util.Objects;
  * Данный класс описывает файл,
  * который имеет какое-то имя и размер.
  *
- * @author scriptkid777
+ * @author scriptkid
  */
 
 public class FileProperty {
