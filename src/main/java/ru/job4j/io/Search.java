@@ -29,7 +29,7 @@ public class Search {
         }
 
         if (!(args[1].length() > 1) && !(args[1].startsWith("."))) {
-            throw new IllegalArgumentException(String.format("Not an extension of the files: %s", args[1]));
+            throw new IllegalArgumentException(String.format("Not an extension of the file: %s", args[1]));
         }
     }
 
