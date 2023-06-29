@@ -8,6 +8,7 @@ import java.nio.file.Paths;
 import java.util.List;
 import java.util.function.Predicate;
 
+
 public class Search {
     public static void main(String[] args) throws IOException {
         validate(args);
@@ -16,8 +17,8 @@ public class Search {
     }
 
     private static void validate(String[] args) {
-        if (args.length == 0) {
-            throw new IllegalArgumentException("Root folder is null. Usage java -jar dir.jar ROOT_FOLDER.");
+        if (args.length != 2) {
+            throw new IllegalArgumentException("Specify the starting folder and extension of the files to be searched");
         }
         File file = new File(args[0]);
         if (!file.exists()) {
@@ -25,6 +26,10 @@ public class Search {
         }
         if (!file.isDirectory()) {
             throw new IllegalArgumentException(String.format("Not directory %s", file.getAbsoluteFile()));
+        }
+
+        if (!(args[1].length() > 1) && !(args[1].startsWith("."))) {
+            throw new IllegalArgumentException(String.format("Not an extension of the files: %s", args[1]));
         }
     }
 
