@@ -14,7 +14,7 @@ public class CSVReader {
              BufferedWriter writer = new BufferedWriter(new FileWriter(argsName.get("out")))) {
             Scanner scanner = new Scanner(reader).useDelimiter(",");
             while (scanner.hasNext()) {
-                String [] lines = scanner.nextLine().split(argsName.get("delimiter"));
+                String[] lines = scanner.nextLine().split(argsName.get("delimiter"));
                 for (int i = 0; i < lines.length; i++) {
                     for (int j = 0; j < filters.length; j++) {
                         if (lines[i].equals(filters[j])) {
@@ -36,7 +36,7 @@ public class CSVReader {
                     writer.write(line);
                 }
             }
-            } catch (IOException e){
+            } catch (IOException e) {
              e.printStackTrace();
         }
         }
