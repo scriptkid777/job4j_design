@@ -7,14 +7,18 @@ import java.util.*;
 
 public class CSVReader {
     public static void handle(ArgsName argsName) throws Exception {
-        String[] filters = argsName.get("filter").split(",");
+        String argFilter = argsName.get("filter");
+        String argDel = argsName.get("delimiter");
+        String argPath = argsName.get("path");
+        String argOut = argsName.get("out");
+        String[] filters = argFilter.split(",");
         int[] indexes = new int[filters.length];
         List<String> list = new ArrayList<>();
-        try (BufferedReader reader = new BufferedReader(new FileReader(argsName.get("path")));
-             BufferedWriter writer = new BufferedWriter(new FileWriter(argsName.get("out")))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(argPath));
+             BufferedWriter writer = new BufferedWriter(new FileWriter(argOut))) {
             Scanner scanner = new Scanner(reader).useDelimiter(",");
             while (scanner.hasNext()) {
-                String[] lines = scanner.nextLine().split(argsName.get("delimiter"));
+                String[] lines = scanner.nextLine().split(argDel);
                 for (int i = 0; i < lines.length; i++) {
                     for (int j = 0; j < filters.length; j++) {
                         if (lines[i].equals(filters[j])) {
@@ -22,7 +26,7 @@ public class CSVReader {
                         }
                     }
                 }
-                StringJoiner joiner = new StringJoiner(argsName.get("delimiter"));
+                StringJoiner joiner = new StringJoiner(argDel);
                 for (int index : indexes) {
                     joiner.add(lines[index]);
                 }
@@ -30,7 +34,7 @@ public class CSVReader {
                 list.add(System.lineSeparator());
             }
             for (String line : list) {
-                if (argsName.get("out").equals("stdout")) {
+                if (argOut.equals("stdout")) {
                     System.out.println(line);
                 } else {
                     writer.write(line);
@@ -49,23 +53,27 @@ public class CSVReader {
         ArgsName argsName = ArgsName.of(args);
         checkArgs(argsName);
         handle(argsName);
-
     }
 
     public static void checkArgs(ArgsName args) {
-        if (!Files.exists(Path.of(args.get("path")))) {
+        String argFilter = args.get("filter");
+        String argDel = args.get("delimiter");
+        String argPath = args.get("path");
+        String argOut = args.get("out");
+
+        if (!Files.exists(Path.of(argPath))) {
             throw new IllegalArgumentException("File does not Exists!");
         }
-        if (!args.get("path").contains(".csv")) {
+        if (!argPath.contains(".csv")) {
             throw new IllegalArgumentException("Specified incorrect path");
         }
-        if (!args.get("delimiter").contains(";") || args.get("delimiter").length() > 1) {
+        if (!argDel.contains(";") || argDel.length() > 1) {
             throw new IllegalArgumentException("Specified incorrect delimiter");
         }
-        if (!(args.get("out").contains("stdout") || args.get("out").contains(".csv"))) {
+        if (!(argOut.contains("stdout") || argOut.contains(".csv"))) {
             throw new IllegalArgumentException("Specified incorrect path");
         }
-        if (args.get("filter").split(",").length < 1) {
+        if (argFilter.split(",").length < 1) {
             throw new IllegalArgumentException("There must be at least one filter");
         }
     }
