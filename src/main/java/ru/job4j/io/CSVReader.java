@@ -34,7 +34,7 @@ public class CSVReader {
                 list.add(System.lineSeparator());
             }
             for (String line : list) {
-                if (argOut.equals("stdout")) {
+                if ("stdout".equals(argOut)) {
                     System.out.println(line);
                 } else {
                     writer.write(line);
