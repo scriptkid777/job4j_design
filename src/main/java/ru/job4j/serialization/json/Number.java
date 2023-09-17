@@ -6,6 +6,11 @@ public class Number {
     public Number(String number) {
         this.number = number;
     }
+
+    public String isNumber() {
+        return number;
+    }
+
     @Override
     public String toString() {
         return "{" + '\"' + number + '\"' + '}';

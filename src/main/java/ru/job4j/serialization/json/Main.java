@@ -13,7 +13,7 @@ public class Main {
 
             final String carJson =
                     "{"
-                            + "\"truck\":true,"
+                            + "\"truck\":false,"
                             + "\"power\":250,"
                             + "\"number\":"
                             + "{"
