@@ -38,6 +38,10 @@ public class Car {
         return name;
     }
 
+    public String[] getStatuses() {
+        return statuses;
+    }
+
     @Override
     public String toString() {
         return "Car{"
