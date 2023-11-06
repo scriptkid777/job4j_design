@@ -1,9 +1,11 @@
 package ru.job4j.io;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class EchoServer {
     private static final Logger LOG = LoggerFactory.getLogger(EchoServer.class.getName());
