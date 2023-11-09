@@ -1,0 +1,1 @@
+2023-11-09 16:07:32,684 DEBUG ru.job4j.io.UsageLog4j:main:19 - User info name: Petr Arsentev, age: 33 , gender: m , isActive: true, value: 121, category: 2, num: 2147483649,fl: 30.6, db: 30.6
