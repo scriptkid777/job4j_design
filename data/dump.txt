@@ -1,3 +1,3 @@
 Petr Arsentev;parsentev@yandex.ru;
 Ivan Ivanov;iivanov@gmail.com;
-Izmail Sidorov;izmail@mail.ru;
+Izmail Sidorov;sizmail@mail.ru; 

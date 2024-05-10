@@ -101,9 +101,7 @@ public class ImportDB {
     public static void main(String[] args) throws Exception {
         Properties config = new Properties();
         try (InputStream in = ImportDB.class.getClassLoader().getResourceAsStream("app.properties")) {
-            {
                 config.load(in);
-            }
             ImportDB db = new ImportDB(config, "data/dump.txt");
             db.save(db.load());
         }
