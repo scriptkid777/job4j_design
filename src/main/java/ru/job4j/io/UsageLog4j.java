@@ -16,8 +16,7 @@ public class UsageLog4j {
         long num = 2147483649L;
         float fl = 30.6f;
         double db = 30.6;
-        LOG.debug("User info name: {}, age: {}, gender: {}, isActive: {}, value: {}, category: {}, num: {},fl: {}, db: {}",
-                name, age, gender, active, value, category, num, fl, db);
+        LOG.debug("User info name: {}, age: {} , gender: {} , isActive: {}, value: {}, category: {}, num: {},fl: {}, db: {}", name, age, gender, active, value, category, num, fl, db);
 
     }
 }

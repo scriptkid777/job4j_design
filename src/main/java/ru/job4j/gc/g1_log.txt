@@ -7,7 +7,7 @@
 [2024-07-15T16:26:10.611+0700][info][gc] GC(5) Pause Young (Normal) (G1 Evacuation Pause) 6M->4M(12M) 3.561ms
 [2024-07-15T16:26:10.635+0700][info][gc] GC(6) Pause Young (Normal) (G1 Evacuation Pause) 6M->5M(12M) 3.119ms
 [2024-07-15T16:26:10.683+0700][info][gc] GC(7) Pause Young (Normal) (G1 Evacuation Pause) 6M->4M(12M) 1.252ms
-[2024-07-15T16:26:10.855+0700][info][gc] GC(8) Pause Young (Normal) (G1 Evacuation Pause) 5M->4M(12M) 1.728ms
+ [2024-07-15T16:26:10.855+0700][info][gc] GC(8) Pause Young (Normal) (G1 Evacuation Pause) 5M->4M(12M) 1.728ms
 [2024-07-15T16:26:10.937+0700][info][gc] GC(9) Pause Young (Normal) (G1 Evacuation Pause) 5M->5M(12M) 1.863ms
 [2024-07-15T16:26:11.081+0700][info][gc] GC(10) Pause Young (Normal) (G1 Evacuation Pause) 6M->5M(12M) 1.971ms
 [2024-07-15T16:26:11.152+0700][info][gc] GC(11) Pause Young (Normal) (G1 Evacuation Pause) 6M->5M(12M) 2.890ms

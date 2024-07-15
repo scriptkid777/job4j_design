@@ -12,7 +12,7 @@
 [2024-07-15T17:09:00.814+0700][info][gc] GC(9) Garbage Collection (Allocation Stall) 26M(72%)->8M(22%)
 [2024-07-15T17:09:00.921+0700][info][gc] GC(10) Garbage Collection (Allocation Rate) 8M(22%)->8M(22%)
 [2024-07-15T17:09:01.018+0700][info][gc] GC(11) Garbage Collection (Allocation Rate) 8M(22%)->10M(28%)
-[2024-07-15T17:09:01.117+0700][info][gc] GC(12) Garbage Collection (Allocation Rate) 10M(28%)->8M(22%)
+ [2024-07-15T17:09:01.117+0700][info][gc] GC(12) Garbage Collection (Allocation Rate) 10M(28%)->8M(22%)
 [2024-07-15T17:09:01.211+0700][info][gc] GC(13) Garbage Collection (Allocation Rate) 8M(22%)->8M(22%)
 [2024-07-15T17:09:13.216+0700][info][gc] GC(14) Garbage Collection (Proactive) 12M(33%)->8M(22%)
 [2024-07-15T17:09:22.214+0700][info][gc] GC(15) Garbage Collection (Proactive) 12M(33%)->8M(22%)
