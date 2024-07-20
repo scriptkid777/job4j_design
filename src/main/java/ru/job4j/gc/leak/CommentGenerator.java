@@ -8,8 +8,8 @@ import java.io.IOException;
 public class CommentGenerator implements Generate {
     public static final String PATH_PHRASES = "src/main/java/ru/job4j/gc/leak/files/phrases.txt";
 
-    private static List<Comment> comments = new ArrayList<>();
-    private static List<String> phrases;
+    private  List<Comment> comments = new ArrayList<>();
+    private  List<String> phrases;
     private UserGenerator userGenerator;
     private Random random;
 
@@ -27,8 +27,8 @@ public class CommentGenerator implements Generate {
         }
     }
 
-    public static List<Comment> getComments() {
-        return comments;
+    public List<Comment> getComments() {
+        return  comments;
     }
 
     @Override
