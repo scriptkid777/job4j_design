@@ -1,3 +1,4 @@
+
 select e.name "Работник", d.name "Департамент"
 from employees e left join departments d 
 on e.department_id = d.id;
