@@ -1,5 +1,5 @@
 package ru.job4j.tdd;
 
-public class AccountCinema implements Account{
+public class AccountCinema implements Account {
 
 }
