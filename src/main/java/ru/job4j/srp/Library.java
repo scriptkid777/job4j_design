@@ -29,7 +29,7 @@ public class Library {
     }
 
     public void saveToFile(String filename) {
-        // Логика сохранения библиотеки в файл
+        /* Логика сохранения библиотеки в файл   */
         System.out.println("Saving library to file: " + filename);
     }
 }

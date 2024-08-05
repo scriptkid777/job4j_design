@@ -8,16 +8,16 @@ package ru.job4j.srp;
 
 public class OrderProcessor {
     public void processOrder(Order order) {
-        // Логика обработки заказа
+         Логика обработки заказа
         System.out.println("Processing order: " + order.getId());
     }
     public void sendConfirmationEmail(Order order) {
-        // Логика отправки подтверждения по email
+         Логика отправки подтверждения по email
         System.out.println("Sending confirmation email for order: " + order.getId());
     }
 
     public void generateInvoice(Order order) {
-        // Логика генерации счета
+        Логика генерации счета
         System.out.println("Generating invoice for order: " + order.getId());
     }
 }
