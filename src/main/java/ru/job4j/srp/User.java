@@ -15,15 +15,15 @@ public class User {
     }
 
     public void save() {
-        // Логика сохранения пользователя в базу данных
+        /* Логика сохранения пользователя в базу данных */
     }
 
     public void sendEmail(String message) {
-        // Логика отправки email пользователю
+        /* Логика отправки email пользователю */
     }
 
     public void printUserDetails() {
-        // Логика печати информации о пользователе
+        /* Логика печати информации о пользователе */
         System.out.println("Name: " + name + ", Email: " + email);
     }
 }
