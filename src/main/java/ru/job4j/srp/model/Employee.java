@@ -1,12 +1,17 @@
 package ru.job4j.srp.model;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.util.Calendar;
 import java.util.Objects;
 
-
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Employee {
     private String name;
+@XmlJavaTypeAdapter(XMLDateAdapter.class)
     private Calendar hired;
+    @XmlJavaTypeAdapter(XMLDateAdapter.class)
     private Calendar fired;
     private double salary;
 
@@ -27,12 +32,16 @@ public class Employee {
         return Objects.hash(name);
     }
 
+    public Employee() {
+    }
+
     public Employee(String name, Calendar hired, Calendar fired, double salary) {
         this.name = name;
         this.hired = hired;
         this.fired = fired;
         this.salary = salary;
     }
+
 
     public String getName() {
         return name;
