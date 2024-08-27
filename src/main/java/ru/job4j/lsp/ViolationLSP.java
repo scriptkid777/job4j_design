@@ -78,13 +78,15 @@ public class ViolationLSP {
         @Override
         public void setWidth(int width) {
             this.width = width;
-            this.height = width; // Изменяем высоту, нарушая поведение родительского класса
+            this.height = width; /* Изменяем высоту, нарушая поведение родительского класса
+            */
         }
 
         @Override
         public void setHeight(int height) {
             this.height = height;
-            this.width = height; // Изменяем ширину, нарушая поведение родительского класса
+            this.width = height; /* Изменяем ширину, нарушая поведение родительского класса
+            */
         }
     }
 
@@ -93,12 +95,12 @@ public class ViolationLSP {
             Rectangle rect = new Rectangle();
             rect.setWidth(5);
             rect.setHeight(10);
-            System.out.println("Area of Rectangle: " + rect.getArea()); // 50
+            System.out.println("Area of Rectangle: " + rect.getArea()); /* 50 */
 
             Rectangle square = new Square();
             square.setWidth(5);
             square.setHeight(10);
-            System.out.println("Area of Square: " + square.getArea()); // 100, что не ожидается
+            System.out.println("Area of Square: " + square.getArea()); /* 100, что не ожидается */
         }
     }
 
