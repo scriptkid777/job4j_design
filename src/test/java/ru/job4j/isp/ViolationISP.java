@@ -78,7 +78,7 @@ public class ViolationISP {
         }
 
         public void fly() {
-            // Собака не может летать
+            /* Собака не может летать */
             throw new UnsupportedOperationException();
         }
     }
