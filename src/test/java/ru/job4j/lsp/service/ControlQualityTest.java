@@ -28,7 +28,6 @@ class ControlQualityTest {
         List<Store> storeList = Arrays.asList(trash, warehouse, shop);
         service = new ControlQuality(storeList);
     }
-
     @Test
     public void whenAddFoodThenMovingInTrash() {
         LocalDate now = LocalDate.now();
@@ -56,5 +55,24 @@ class ControlQualityTest {
         assertThat(shop.findAll()).contains(food1, food2, food3);
     }
 
-
+    @Test
+    public void whenResortThenMovingFromShopToTrash() {
+        LocalDate now = LocalDate.now();
+        Food food = new Bread("Bread", now.minusDays(2), now.plusDays(6), 50);
+        service.distribute(food);
+        assertThat(shop.findAll()).contains(food);
+        food.setExpiryDate(now.minusDays(3));
+        service.resort();
+        assertThat(trash.findAll()).contains(food);
+    }
+    @Test
+    public void whenResortThenMovingFromWarehouseToShop() {
+        LocalDate now = LocalDate.now();
+        Food food = new Yogurt("Danone", now.minusDays(2), now.plusDays(7), 100);
+        service.distribute(food);
+        assertThat(warehouse.findAll()).contains(food);
+        food.setExpiryDate(now.plusDays(5));
+        service.resort();
+        assertThat(shop.findAll()).contains(food);
+    }
 }
