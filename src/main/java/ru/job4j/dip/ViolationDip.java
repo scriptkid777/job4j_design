@@ -36,14 +36,14 @@ public class ViolationDip {
         }
     }
 
-    class PaymentProcessor {
+    static class PaymentProcessor {
         public void processPayment() {
             /* Логика обработки платежа  */
             System.out.println("Payment processed.");
         }
     }
 
-    class Checkout {
+    static class Checkout {
         private PaymentProcessor paymentProcessor;
 
         public Checkout() {
