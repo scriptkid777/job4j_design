@@ -21,7 +21,7 @@ public class ViolationDip {
         }
     }
 
-    class NotificationService {
+    static class NotificationService {
         public void notifyUser(String message) {
             /* Логика уведомления */
             System.out.println("User notified: " + message);
